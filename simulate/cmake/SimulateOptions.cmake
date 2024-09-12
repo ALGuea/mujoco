@@ -62,7 +62,7 @@ endif()
 
 # We default to shared library.
 set(BUILD_SHARED_LIBS
-    ON
+    OFF
     CACHE BOOL "Build Mujoco as shared library."
 )
 
@@ -92,7 +92,6 @@ if(CMAKE_CXX_COMPILER_ID STREQUAL "GNU" OR (CMAKE_CXX_COMPILER_ID MATCHES "Clang
       -Wimplicit-fallthrough
       -Wunused
       -Wvla
-      -Wno-int-in-bool-context
       -Wno-sign-compare
       -Wno-unknown-pragmas
   )

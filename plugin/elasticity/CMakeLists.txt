@@ -30,7 +30,7 @@ set(MUJOCO_ELASTICITY_SRCS
     solid.h
 )
 
-add_library(elasticity SHARED)
+add_library(elasticity STATIC)
 target_sources(elasticity PRIVATE ${MUJOCO_ELASTICITY_SRCS})
 target_include_directories(elasticity PRIVATE ${MUJOCO_ELASTICITY_INCLUDE})
 target_link_libraries(elasticity PRIVATE mujoco)

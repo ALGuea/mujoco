@@ -72,7 +72,7 @@ include(FindOrFetch)
 if(NOT TARGET mujoco)
   add_library(
     mujoco
-    SHARED
+    STATIC
     IMPORTED
     GLOBAL
   )
@@ -140,7 +140,7 @@ findorfetch(
   GIT_REPO
   https://github.com/abseil/abseil-cpp
   GIT_TAG
-  2f9e432cce407ce0ae50676696666f33a77d42ac # LTS 20240116.1
+  4a2c63365eff8823a5221db86ef490e828306f9d # LTS 20240116.0
   TARGETS
   ${MUJOCO_PYTHON_ABSL_TARGETS}
   EXCLUDE_FROM_ALL
@@ -173,7 +173,7 @@ findorfetch(
   GIT_REPO
   https://gitlab.com/libeigen/eigen
   GIT_TAG
-  2a9055b50ed22101da7d77e999b90ed50956fe0b
+  7fd7a3f946e5ac152d28dad388cff8bfa1026925
   TARGETS
   Eigen3::Eigen
   EXCLUDE_FROM_ALL
@@ -305,7 +305,6 @@ macro(mujoco_pybind11_module name)
               -Wall
               -Wimplicit-fallthrough
               -Wunused
-              -Wno-int-in-bool-context
               -Wno-sign-compare
     )
     if(CMAKE_CXX_COMPILER_ID STREQUAL "GNU")

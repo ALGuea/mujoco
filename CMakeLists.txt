@@ -38,10 +38,10 @@ enable_language(CXX)
 
 list(APPEND CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake")
 
-option(MUJOCO_BUILD_EXAMPLES "Build samples for MuJoCo" ON)
-option(MUJOCO_BUILD_SIMULATE "Build simulate library for MuJoCo" ON)
-option(MUJOCO_BUILD_TESTS "Build tests for MuJoCo" ON)
-option(MUJOCO_TEST_PYTHON_UTIL "Build and test utility libraries for Python bindings" ON)
+option(MUJOCO_BUILD_EXAMPLES "Build samples for MuJoCo" OFF)
+option(MUJOCO_BUILD_SIMULATE "Build simulate library for MuJoCo" OFF)
+option(MUJOCO_BUILD_TESTS "Build tests for MuJoCo" OFF)
+option(MUJOCO_TEST_PYTHON_UTIL "Build and test utility libraries for Python bindings" OFF)
 
 if(APPLE AND (MUJOCO_BUILD_EXAMPLES OR MUJOCO_BUILD_SIMULATE))
   enable_language(OBJC)
@@ -74,7 +74,7 @@ else()
   set(MUJOCO_RESOURCE_FILES "")
 endif()
 
-add_library(mujoco SHARED ${MUJOCO_RESOURCE_FILES})
+add_library(mujoco STATIC ${MUJOCO_RESOURCE_FILES})
 target_include_directories(
   mujoco
   PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
@@ -115,7 +115,6 @@ target_link_options(
 target_link_libraries(
   mujoco
   PRIVATE ccd
-          lodepng
           qhullstatic_r
           tinyobjloader
           tinyxml2

@@ -18,8 +18,10 @@ The JSON input can be generated via:
   clang -Xclang -ast-dump=json -fsyntax-only -fparse-all-comments -x c mujoco.h
 """
 
+import sys
+sys.path.insert(0, '/mujoco/introspect')
+
 import itertools
-import json
 import os
 import re
 from typing import Any, Mapping, Sequence, Union

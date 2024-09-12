@@ -23,7 +23,7 @@ set(MUJOCO_SENSOR_SRCS
     touch_grid.cc
 )
 
-add_library(sensor SHARED)
+add_library(sensor STATIC)
 target_sources(sensor PRIVATE ${MUJOCO_SENSOR_SRCS})
 target_include_directories(sensor PRIVATE ${MUJOCO_SENSOR_INCLUDE})
 target_link_libraries(sensor PRIVATE mujoco)

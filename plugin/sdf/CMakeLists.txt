@@ -34,7 +34,7 @@ set(MUJOCO_SDF_SRCS
     torus.h
 )
 
-add_library(sdf SHARED)
+add_library(sdf STATIC)
 target_sources(sdf PRIVATE ${MUJOCO_SDF_SRCS})
 target_include_directories(sdf PRIVATE ${MUJOCO_SDF_INCLUDE})
 target_link_libraries(sdf PRIVATE mujoco SdfLib)
